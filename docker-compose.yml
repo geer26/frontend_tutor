@@ -1,0 +1,31 @@
+  postgres:
+    container_name: postgres
+    image: "postgres:14.1-alpine"
+    restart: "always"
+    ports:
+      - "54321:5432"
+    environment:
+      - POSTGRES_USER=pguser
+      - POSTGRES_PASSWORD=726354Valami01
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+      - ./pg_init:/docker-entrypoint-initdb.d
+
+#  backend:
+#    container_name: counter_server
+#    image: "counter_server:latest"
+#    restart: "always"
+#    depends_on:
+#      - "postgres"
+#    volumes:
+#      - /counter/app_source/kb_counter/:/counter
+      #- /counter/app_logs:/auth_server/srv6/log
+
+#  nginx:
+#    container_name: proxy
+#    image: "proxy:latest"
+#    restart: "always"
+#  #  depends_on:
+#  #      - "backend"
+#    ports:
+

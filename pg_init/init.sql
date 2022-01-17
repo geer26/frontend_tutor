@@ -1,0 +1,13 @@
+CREATE USER geer26 WITH ENCRYPTED PASSWORD '726354Valami01';
+CREATE DATABASE test_db
+        WITH OWNER = geer26 
+        ENCODING = 'UTF8';
+        
+//CREATE DATABASE opt_db
+//        WITH OWNER = geer26
+//        ENCODING = 'UTF8';
+//CREATE USER counteradmin WITH ENCRYPTED PASSWORD '726354Valami02';
+//CREATE DATABASE KBc_db
+//        WITH OWNER = geer26
+//        ENCODING = 'UTF8';
+
