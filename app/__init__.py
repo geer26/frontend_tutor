@@ -31,3 +31,4 @@ api = Api(app)
 
 
 #from app import routes, models, workers, endpoints
+from app import models
