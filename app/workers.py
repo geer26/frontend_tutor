@@ -36,6 +36,7 @@ def addentry(data):
         entry.author = int(data['author'])
         db.session.add(entry)
         db.session.commit()
+        return True
     except(Exception):
         return False
 
@@ -46,6 +47,7 @@ def delentry(data):
         entry = Entry.query.get(int(entryid))
         db.session.delete(entry)
         db.session.commit()
+        return True
     except(Exception):
         return False
 
@@ -56,5 +58,6 @@ def modentry(data):
         entry = Entry.query.get(int(entryid))
         entry.title = str(data['title'])
         entry.body = str(data['body'])
+        return True
     except(Exception):
         return False

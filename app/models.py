@@ -33,6 +33,7 @@ class Entry(db.Model):
         return {
             'id': self.id,
             'title': self.title,
+            'body': self.body,
             'created_at': self.created_at,
             'author': self.author
         }
