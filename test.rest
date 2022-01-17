@@ -24,3 +24,50 @@ content-type: application/json
 {
     "userid": 1
 }
+
+
+
+### Add entry
+# Endpoint: /API/addentry
+# Method: POST
+# Type: application/json
+# JSON payload: {"title": <str>, "body": <str>, "author": <int>}
+# Returns: 200 or 500 with message
+POST http://127.0.0.1:5001/API/addentry HTTP/1.1
+content-type: application/json
+
+{
+    "title": "első cím",
+    "body": "Szövegtörzs",
+    "author": 1
+}
+
+
+### Delete entry
+# Endpoint: /API/delentry
+# Method: POST
+# Type: application/json
+# JSON payload: {"entryid": <int>}
+# Returns: 200 or 500 with message
+POST http://127.0.0.1:5001/API/delentry HTTP/1.1
+content-type: application/json
+
+{
+    "entryid": 1
+}
+
+
+### Modify entry
+# Endpoint: /API/modentry
+# Method: POST
+# Type: application/json
+# JSON payload: {"entryid": <int>, "title": <str>, "body": <str>}
+# Returns: 200 or 500 with message
+POST http://127.0.0.1:5001/API/modentry HTTP/1.1
+content-type: application/json
+
+{
+    "entryid": 1,
+    "title": "Módosított cím",
+    "body": "Módosított szövegtörzs"
+}

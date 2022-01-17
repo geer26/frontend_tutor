@@ -3,8 +3,8 @@ from app import db
 from app.models import User, Entry
 
 def adduser(data):
-    username = data['username']
     try:
+        username = data['username']
         user = User()
         user.username = username
         db.session.add(user)
@@ -15,8 +15,8 @@ def adduser(data):
 
 
 def deluser(data):
-    userid = data['userid']
     try:
+        userid = data['userid']
         user = User.query.get(int(userid))
         # delete all corresponding entries
         for entry in Entry.query.filter_by(author=user.id).all():
@@ -29,4 +29,32 @@ def deluser(data):
 
 
 def addentry(data):
-    pass
+    try:
+        entry = Entry()
+        entry.title = str(data['title'])
+        entry.body = str(data['body'])
+        entry.author = int(data['author'])
+        db.session.add(entry)
+        db.session.commit()
+    except(Exception):
+        return False
+
+
+def delentry(data):
+    try:
+        entryid = data['entryid']
+        entry = Entry.query.get(int(entryid))
+        db.session.delete(entry)
+        db.session.commit()
+    except(Exception):
+        return False
+
+
+def modentry(data):
+    try:
+        entryid = data['entryid']
+        entry = Entry.query.get(int(entryid))
+        entry.title = str(data['title'])
+        entry.body = str(data['body'])
+    except(Exception):
+        return False
