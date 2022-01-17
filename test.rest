@@ -4,11 +4,11 @@
 # Type: application/json
 # JSON payload: {"username": <str>}
 # Returns: 200 or 500 with message
-POST http://127.0.0.1:5001/API/adduser HTTP/1.1
+POST http://127.0.0.1:5002/API/adduser HTTP/1.1
 content-type: application/json
 
 {
-    "username": "user"
+    "username": "user3345"
 }
 
 
@@ -22,7 +22,7 @@ POST http://127.0.0.1:5001/API/deluser HTTP/1.1
 content-type: application/json
 
 {
-    "userid": 1
+    "userid": 2
 }
 
 
@@ -33,13 +33,13 @@ content-type: application/json
 # Type: application/json
 # JSON payload: {"title": <str>, "body": <str>, "author": <int>}
 # Returns: 200 or 500 with message
-POST http://127.0.0.1:5001/API/addentry HTTP/1.1
+POST http://127.0.0.1:5002/API/addentry HTTP/1.1
 content-type: application/json
 
 {
     "title": "első cím",
     "body": "Szövegtörzs",
-    "author": 1
+    "author": 5
 }
 
 
