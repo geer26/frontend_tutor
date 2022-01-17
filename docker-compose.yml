@@ -12,13 +12,15 @@
       - ./pg_init:/docker-entrypoint-initdb.d
 
 #  backend:
-#    container_name: counter_server
-#    image: "counter_server:latest"
+#    container_name: tutorserver
+#    image: "tutorserver:latest"
 #    restart: "always"
 #    depends_on:
 #      - "postgres"
+#    ports:
+#      - "5002:5001"
 #    volumes:
-#      - /counter/app_source/kb_counter/:/counter
+#      - ./:/srv
       #- /counter/app_logs:/auth_server/srv6/log
 
 #  nginx:
