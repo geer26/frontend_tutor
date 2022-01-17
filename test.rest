@@ -1,0 +1,26 @@
+### Add user
+# Endpoint: /API/adduser
+# Method: POST
+# Type: application/json
+# JSON payload: {"username": <str>}
+# Returns: 200 or 500 with message
+POST http://127.0.0.1:5001/API/adduser HTTP/1.1
+content-type: application/json
+
+{
+    "username": "user"
+}
+
+
+### Delete user
+# Endpoint: /API/deluser
+# Method: POST
+# Type: application/json
+# JSON payload: {"userid": <int>}
+# Returns: 200 or 500 with message
+POST http://127.0.0.1:5001/API/deluser HTTP/1.1
+content-type: application/json
+
+{
+    "userid": 1
+}
