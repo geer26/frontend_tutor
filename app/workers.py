@@ -79,7 +79,7 @@ def getdata():
                 e['title'] = entry.title
                 e['body'] = entry.body
                 e['author'] = entry.author
-                #e['created_at'] = datetime.timestamp(entry.created_at)
+                e['created_at'] = entry.created_at
                 u['entries'].append(e)
             data.append(u)
         return data
