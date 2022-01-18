@@ -1,6 +1,14 @@
 version: "3.9"
 services:
 
+version: "3.9"
+services:
+
+#  web:
+#    build: .
+#    ports:
+#      - "80:80"
+
   postgres:
     container_name: postgres
     image: "postgres:14.1-alpine"

@@ -7,9 +7,10 @@ RUN mkdir -p /srv
 WORKDIR /srv
 COPY requirements.txt /srv
 RUN pip3 install -r requirements.txt --no-cache-dir
-ENV FLASK_RUN_HOST=0.0.0.0
+#ENV FLASK_RUN_HOST=0.0.0.0
 EXPOSE 5001/tcp
 ENTRYPOINT gunicorn -b 0.0.0.0:5001 -w 4 test:app
+#ENTRYPOINT flask run
 
 #docker build -t auth_server:latest .
 #sudo docker run -d --net=host auth_server
