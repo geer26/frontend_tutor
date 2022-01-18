@@ -23,11 +23,14 @@ class Entry(db.Model):
     id = db.Column(db.Integer, index=True, primary_key=True)
     title = db.Column(db.String(64), default='No title')
     body = db.Column(db.String(4096), default='No body')
-    created_at = db.Column(db.Date(), default=datetime.now(), nullable=False)
+    created_at = db.Column(db.Date(), default=int(datetime.timestamp(datetime.now())))
     author = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
         return f'Username: {self.username}, ID: {self.id}'
+
+    def get_date(self,timest):
+        return datetime.fromtimestamp(timest)
 
     def get_self_json(self):
         return {
