@@ -6,7 +6,7 @@ from flask_restful import Resource
 from flask import request, render_template, send_from_directory, session, Response, redirect
 from app import api, db
 
-from app.workers import adduser, deluser, addentry, delentry, modentry
+from app.workers import adduser, deluser, addentry, delentry, modentry, getdata
 
 from app.models import User, Entry
 
@@ -51,6 +51,12 @@ class ModEntry(Resource):
         return {'status': 1, 'message': 'Error occured!'}, 500
 
 
+class GetData(Resource):
+    def get(self):
+        data = getdata()
+        if data:
+            return {'status': 0, 'content': data}, 200
+        return {'status': 1, 'message': 'Error occured!'}, 500
 
 
 
@@ -59,3 +65,4 @@ api.add_resource(DelUser, '/API/deluser')
 api.add_resource(AddEntry, '/API/addentry')
 api.add_resource(DelEntry, '/API/delentry')
 api.add_resource(ModEntry, '/API/modentry')
+api.add_resource(GetData, '/API/getdata')

@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from app import db
 from app.models import User, Entry
 
@@ -59,5 +60,28 @@ def modentry(data):
         entry.title = str(data['title'])
         entry.body = str(data['body'])
         return True
+    except(Exception):
+        return False
+
+
+def getdata():
+    try:
+        data = []
+        for user in User.query.all():
+            u = {}
+            u['userid'] = user.id
+            u['username'] = user.username
+            u['entries'] = []
+            for entry in Entry.query.filter_by(author=user.id).all():
+                print(f'ENTRY: {entry.get_self_json()}')
+                e = {}
+                e['id'] = entry.id
+                e['title'] = entry.title
+                e['body'] = entry.body
+                e['author'] = entry.author
+                #e['created_at'] = datetime.timestamp(entry.created_at)
+                u['entries'].append(e)
+            data.append(u)
+        return data
     except(Exception):
         return False

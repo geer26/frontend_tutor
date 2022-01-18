@@ -1,3 +1,6 @@
+version: "3.9"
+services:
+
   postgres:
     container_name: postgres
     image: "postgres:14.1-alpine"
@@ -11,16 +14,16 @@
       - ./pg_data:/var/lib/postgresql/data
       - ./pg_init:/docker-entrypoint-initdb.d
 
-#  backend:
-#    container_name: tutorserver
-#    image: "tutorserver:latest"
-#    restart: "always"
-#    depends_on:
-#      - "postgres"
-#    ports:
-#      - "5002:5001"
-#    volumes:
-#      - ./:/srv
+  backend:
+    container_name: tutorserver
+    image: "tutorserver:latest"
+    restart: "always"
+    depends_on:
+      - "postgres"
+    ports:
+      - "5002:5001"
+    volumes:
+      - ./:/srv
       #- /counter/app_logs:/auth_server/srv6/log
 
 #  nginx:
