@@ -8,7 +8,7 @@ POST http://127.0.0.1:5002/API/adduser HTTP/1.1
 content-type: application/json
 
 {
-    "username": "user3345"
+    "username": "user3"
 }
 
 
@@ -37,9 +37,9 @@ POST http://127.0.0.1:5002/API/addentry HTTP/1.1
 content-type: application/json
 
 {
-    "title": "első cím",
-    "body": "Szövegtörzs",
-    "author": 5
+    "title": "Első/1 cím",
+    "body": "Szövegtörzs 1/1",
+    "author": 2
 }
 
 
@@ -63,11 +63,18 @@ content-type: application/json
 # Type: application/json
 # JSON payload: {"entryid": <int>, "title": <str>, "body": <str>}
 # Returns: 200 or 500 with message
-POST http://127.0.0.1:5001/API/modentry HTTP/1.1
+POST http://127.0.0.1:5002/API/modentry HTTP/1.1
 content-type: application/json
 
 {
-    "entryid": 1,
-    "title": "Módosított cím",
-    "body": "Módosított szövegtörzs"
+    "entryid": 3,
+    "title": "Első/2 cím cím",
+    "body": "Szövegtörzs 1/2"
 }
+
+
+### Get data
+# Endpoint: /API/getdata
+# Method: GET
+# Returns: 200 or 500 with message
+GET http://127.0.0.1:5002/API/getdata HTTP/1.1

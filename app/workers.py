@@ -59,6 +59,7 @@ def modentry(data):
         entry = Entry.query.get(int(entryid))
         entry.title = str(data['title'])
         entry.body = str(data['body'])
+        db.session.commit()
         return True
     except(Exception):
         return False

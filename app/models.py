@@ -23,7 +23,7 @@ class Entry(db.Model):
     id = db.Column(db.Integer, index=True, primary_key=True)
     title = db.Column(db.String(64), default='No title')
     body = db.Column(db.String(4096), default='No body')
-    created_at = db.Column(db.Date(), default=int(datetime.timestamp(datetime.now())))
+    created_at = db.Column(db.Integer, default=int(datetime.timestamp(datetime.now())))
     author = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
